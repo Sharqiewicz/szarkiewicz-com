@@ -2,6 +2,7 @@
 import { SITE_TITLE } from '../consts'
 import MobileNav from './Nav/MobileNav.astro'
 import Nav from './Nav/Nav.astro'
+import ThemeIcon from './ThemeIcon.astro'
 ---
 
 <header class='bg-white dark:bg-gray-900'>
@@ -13,21 +14,22 @@ import Nav from './Nav/Nav.astro'
 
       <Nav />
       <MobileNav />
+      <ThemeIcon />
     </div>
   </nav>
-</header>
-<style>
-  @font-face {
-    font-family: 'Nunito';
-    src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
+  <style>
+    @font-face {
+      font-family: 'Nunito';
+      src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
 
-  .logo {
-    font-family: 'Nunito', sans-serif;
-    font-size: 38px;
-    font-weight: bold;
-  }
-</style>
+    .logo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 38px;
+      font-weight: bold;
+    }
+  </style>
+</header>
