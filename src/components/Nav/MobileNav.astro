@@ -2,91 +2,122 @@
 import HeaderLink from '../HeaderLink.astro'
 ---
 
-<div class='flex items-center md:hidden'>
+<div class='block md:hidden'>
   <button
     type='button'
-    class='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
     aria-controls='mobile-menu'
     aria-expanded='false'
     id='menu-button'
+    class='border-secondary hover:border-primary focus:border-primary inline-flex h-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none w-14'
   >
-    <span class='absolute -inset-0.5'></span>
-    <span class='sr-only'>Open main menu</span>
-    <svg
-      class='block h-6 w-6'
-      fill='none'
-      viewBox='0 0 24 24'
-      stroke-width='1.5'
-      stroke='currentColor'
-      aria-hidden='true'
-      id='menu-icon'
-    >
-      <path
-        id='path-open'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
-
-      <path
-        style='display: none;'
-        id='path-close'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        d='M6 18L18 6M6 6l12 12'></path>
-    </svg>
-  </button>
-  <div
-    class='md:hidden absolute left-0 right-0 top-14 bottom-0'
-    id='mobile-menu'
-    style='display: none;'
-  >
-    <div
-      class='flex-column absolute left-0 right-0 top-0 bottom-0 bg-white dark:bg-gray-900'
-    >
-      <HeaderLink
-        href='/blog'
-        class='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
+    <div class='relative h-8 w-8'>
+      <span class='absolute -inset-0.5'></span>
+      <span class='sr-only'>Open main menu</span>
+      <svg
+        width='32'
+        height='32'
+        viewBox='0 0 32 32'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        ><rect
+          id='rect-one'
+          x='6'
+          y='9'
+          width='20'
+          height='2'
+          rx='1'
+          fill='currentColor'
+          class='transition-all duration-300 ease-in-out'
+          style='transform: none; transform-origin: 0px 0px;'></rect><rect
+          class='transition-all duration-300 ease-in-out'
+          id='rect-two'
+          x='6'
+          y='15'
+          width='20'
+          height='2'
+          rx='1'
+          fill='currentColor'></rect><rect
+          class='transition-all duration-300 ease-in-out'
+          id='rect-three'
+          x='6'
+          y='21'
+          width='20'
+          height='2'
+          rx='1'
+          fill='currentColor'
+          style='transform: none; transform-origin: 0px 0px;'></rect></svg
       >
-        Blog
-      </HeaderLink>
-      <HeaderLink
-        href='/blog'
-        class='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
-      >
-        Youtube
-      </HeaderLink>
-      <HeaderLink
-        href='/blog'
-        class='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
-      >
-        Github
-      </HeaderLink>
-      <HeaderLink
-        href='/about'
-        class='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
-      >
-        About
-      </HeaderLink>
     </div>
-  </div>
+  </button>
+  <div class='hidden bg-white md:hidden' id='mobile-menu'></div>
 </div>
 
 <script>
+  const oneOpenTransform = 'none'
+  const oneOpenTransformOrigin = '0px 0px'
+  const threeOpenTransform = 'none'
+  const threeOpenTransformOrigin = '0px 0px'
+
+  const oneClosedTransform = 'translateY(7px) rotate(45deg)'
+  const oneClosedTransformOrigin = '16px 10px'
+  const threeClosedTransform = 'translateY(-5px) rotate(-45deg)'
+  const threeClosedTransformOrigin = '16px 22px'
+
+  function openMenuAnimation(
+    menuButton: HTMLButtonElement,
+    one: HTMLElement,
+    two: HTMLElement,
+    three: HTMLElement,
+  ) {
+    menuButton.disabled = true
+    one.style.transform = oneClosedTransform
+    one.style.transformOrigin = oneClosedTransformOrigin
+    two.style.opacity = '0'
+    three.style.transform = threeClosedTransform
+    three.style.transformOrigin = threeClosedTransformOrigin
+
+    setTimeout(() => {
+      menuButton.disabled = false
+    }, 300)
+  }
+
+  function closeMenuAnimation(
+    menuButton: HTMLButtonElement,
+    one: HTMLElement,
+    two: HTMLElement,
+    three: HTMLElement,
+  ) {
+    menuButton.disabled = true
+    one.style.transform = oneOpenTransform
+    one.style.transformOrigin = oneOpenTransformOrigin
+    two.style.opacity = '1'
+    three.style.transform = threeOpenTransform
+    three.style.transformOrigin = threeOpenTransformOrigin
+
+    setTimeout(() => {
+      menuButton.disabled = false
+    }, 300)
+  }
+
+  function toggleMenu(isOpen: boolean) {
+    const one = document.getElementById('rect-one')
+    const two = document.getElementById('rect-two')
+    const three = document.getElementById('rect-three')
+    const menuButton = document.getElementById(
+      'menu-button',
+    ) as HTMLButtonElement
+
+    if (!menuButton || !one || !two || !three) return
+
+    if (isOpen) {
+      openMenuAnimation(menuButton, one, two, three)
+    } else {
+      closeMenuAnimation(menuButton, one, two, three)
+    }
+  }
+
   const menuButton = document.getElementById('menu-button')
   const mobileMenu = document.getElementById('mobile-menu')
-
-  function handleDisplayIcon(isOpen: boolean) {
-    const openIcon = document.getElementById('path-open')
-    const closeIcon = document.getElementById('path-close')
-    if (openIcon && closeIcon)
-      if (isOpen) {
-        openIcon.style.display = 'block'
-        closeIcon.style.display = 'none'
-      } else {
-        openIcon.style.display = 'none'
-        closeIcon.style.display = 'block'
-      }
-  }
 
   if (menuButton && mobileMenu) {
     menuButton.addEventListener('click', () => {
@@ -94,7 +125,7 @@ import HeaderLink from '../HeaderLink.astro'
 
       mobileMenu.style.display = isOpen ? 'none' : 'block'
 
-      handleDisplayIcon(isOpen)
+      toggleMenu(isOpen)
     })
   }
 </script>
