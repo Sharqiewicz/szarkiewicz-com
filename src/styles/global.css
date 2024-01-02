@@ -5,3 +5,21 @@ html.dark {
 .dark .nav-links a {
   color: #fff;
 }
+
+html {
+  font-family: 'Nunito', sans-serif;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.logo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}

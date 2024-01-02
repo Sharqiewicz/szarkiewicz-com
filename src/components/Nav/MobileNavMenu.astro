@@ -33,6 +33,14 @@ import HeaderLink from '../HeaderLink.astro'
     }
   }
 
+  .mobile-link.active {
+    background-color: #e5e5e5;
+  }
+
+  :global(.dark) .mobile-link.active {
+    background-color: #151524;
+  }
+
   .mobile-last-link {
     border-bottom: 1px solid #151524;
   }
