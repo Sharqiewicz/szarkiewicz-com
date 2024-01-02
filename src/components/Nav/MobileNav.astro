@@ -1,5 +1,5 @@
 ---
-import HeaderLink from '../HeaderLink.astro'
+import MobileNavMenu from './MobileNavMenu.astro'
 ---
 
 <div class='block md:hidden'>
@@ -49,7 +49,12 @@ import HeaderLink from '../HeaderLink.astro'
       >
     </div>
   </button>
-  <div class='hidden bg-white md:hidden' id='mobile-menu'></div>
+  <div
+    class='hidden md:hidden absolute left-0 top-28 right-0 bottom-0'
+    id='mobile-menu'
+  >
+    <MobileNavMenu />
+  </div>
 </div>
 
 <script>
@@ -110,9 +115,9 @@ import HeaderLink from '../HeaderLink.astro'
     if (!menuButton || !one || !two || !three) return
 
     if (isOpen) {
-      openMenuAnimation(menuButton, one, two, three)
-    } else {
       closeMenuAnimation(menuButton, one, two, three)
+    } else {
+      openMenuAnimation(menuButton, one, two, three)
     }
   }
 
@@ -121,9 +126,15 @@ import HeaderLink from '../HeaderLink.astro'
 
   if (menuButton && mobileMenu) {
     menuButton.addEventListener('click', () => {
-      const isOpen = mobileMenu.style.display === 'block'
+      const isOpen = mobileMenu.classList.contains('block')
 
-      mobileMenu.style.display = isOpen ? 'none' : 'block'
+      if (isOpen) {
+        mobileMenu.classList.remove('block')
+        mobileMenu.classList.add('hidden')
+      } else {
+        mobileMenu.classList.remove('hidden')
+        mobileMenu.classList.add('block')
+      }
 
       toggleMenu(isOpen)
     })

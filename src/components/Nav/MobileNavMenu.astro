@@ -1,0 +1,39 @@
+---
+import HeaderLink from '../HeaderLink.astro'
+---
+
+<section class='flex flex-col justify-between items-center w-full'>
+  <HeaderLink class='w-full p-10 mobile-link' href='/'>Home</HeaderLink>
+  <HeaderLink class='w-full p-10 mobile-link' href='/about'>About</HeaderLink>
+  <HeaderLink class='w-full p-10 mobile-link' href='/blog'>Blog</HeaderLink>
+  <HeaderLink
+    class='w-full p-10 mobile-link mobile-last-link mb-4'
+    href='/contact'
+  >
+    Contact
+  </HeaderLink>
+</section>
+
+<style>
+  :global(.dark) .mobile-link {
+    transition: 0.3s;
+    border-top: 1px solid #151524;
+
+    &:hover {
+      background-color: #151524;
+    }
+  }
+
+  .mobile-link {
+    transition: 0.3s;
+    border-top: 1px solid #151524;
+
+    &:hover {
+      background-color: #e5e5e5;
+    }
+  }
+
+  .mobile-last-link {
+    border-bottom: 1px solid #151524;
+  }
+</style>

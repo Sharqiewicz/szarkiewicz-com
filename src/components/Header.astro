@@ -1,15 +1,14 @@
 ---
 import { Image } from 'astro:assets'
 import logo from '../assets/logo.svg'
-import { SITE_TITLE } from '../consts'
 import MobileNav from './Nav/MobileNav.astro'
 import Nav from './Nav/Nav.astro'
 import ThemeIcon from './ThemeIcon.astro'
 ---
 
-<header class='bg-color-light dark:bg-color-main'>
+<header class='bg-color-light dark:bg-color-main pt-6'>
   <nav class='mx-auto max-w-7xl px-2 md:px-6 lg:px-8'>
-    <div class='flex items-center justify-between items-center'>
+    <div class='flex items-center justify-between items-center h-14'>
       <a href='/'
         ><Image
           src={logo}
@@ -19,8 +18,12 @@ import ThemeIcon from './ThemeIcon.astro'
       >
 
       <Nav />
-      <MobileNav />
-      <ThemeIcon />
+      <div class='flex'>
+        <div class='mr-3 md:hidden'>
+          <MobileNav />
+        </div>
+        <ThemeIcon />
+      </div>
     </div>
   </nav>
   <style>
