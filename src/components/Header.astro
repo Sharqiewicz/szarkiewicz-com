@@ -10,7 +10,13 @@ import ThemeIcon from './ThemeIcon.astro'
 <header class='bg-color-light dark:bg-color-main'>
   <nav class='mx-auto max-w-7xl px-2 md:px-6 lg:px-8'>
     <div class='flex items-center justify-between items-center'>
-      <a href='/'><Image src={logo} alt='Kacper Szarkiewicz Website Logo' /></a>
+      <a href='/'
+        ><Image
+          src={logo}
+          class='w-12 h-12 md:w-20 md:h-20'
+          alt='Kacper Szarkiewicz Website Logo'
+        /></a
+      >
 
       <Nav />
       <MobileNav />
