@@ -6,24 +6,22 @@ import Nav from './Nav/Nav.astro'
 import ThemeIcon from './ThemeIcon.astro'
 ---
 
-<header class='bg-color-light dark:bg-color-main pt-6'>
-  <nav class='mx-auto max-w-7xl px-2 md:px-6 lg:px-8'>
-    <div class='flex items-center justify-between items-center h-14'>
-      <a href='/'
-        ><Image
-          src={logo}
-          class='w-14 h-14'
-          alt='Kacper Szarkiewicz Website Logo'
-        /></a
-      >
+<header class='bg-color-light dark:bg-color-main pt-6 container mx-auto'>
+  <nav class='flex items-center justify-between items-center h-14'>
+    <a href='/'
+      ><Image
+        src={logo}
+        class='w-14 h-14'
+        alt='Kacper Szarkiewicz Website Logo'
+      /></a
+    >
 
-      <Nav />
-      <div class='flex'>
-        <div class='mr-3 md:hidden'>
-          <MobileNav />
-        </div>
-        <ThemeIcon />
+    <Nav />
+    <div class='flex'>
+      <div class='mr-3 md:hidden'>
+        <MobileNav />
       </div>
+      <ThemeIcon />
     </div>
   </nav>
 </header>

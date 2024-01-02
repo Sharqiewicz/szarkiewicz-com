@@ -4,13 +4,26 @@ import HeaderLink from '../HeaderLink.astro'
 
 <section class='flex flex-col justify-between items-center w-full'>
   <HeaderLink class='w-full p-10 mobile-link' href='/'>Home</HeaderLink>
-  <HeaderLink class='w-full p-10 mobile-link' href='/about'>About</HeaderLink>
   <HeaderLink class='w-full p-10 mobile-link' href='/blog'>Blog</HeaderLink>
   <HeaderLink
-    class='w-full p-10 mobile-link mobile-last-link mb-4'
-    href='/contact'
+    target='_blank'
+    class='w-full p-10 mobile-link'
+    href='https://www.youtube.com/@kszarkiewicz/featured'
   >
-    Contact
+    Youtube
+  </HeaderLink>
+  <HeaderLink
+    target='_blank'
+    class='w-full p-10 mobile-link'
+    href='https://github.com/Sharqiewicz'
+  >
+    Github
+  </HeaderLink>
+  <HeaderLink
+    class='w-full p-10 mobile-link mobile-last-link mb-4'
+    href='/about'
+  >
+    About
   </HeaderLink>
 </section>
 
