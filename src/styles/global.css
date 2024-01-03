@@ -23,3 +23,11 @@ html {
   font-size: 38px;
   font-weight: bold;
 }
+
+.timeline-circle {
+  background-color: #1db954;
+}
+
+.timeline-circle-unfinished {
+  background-color: #ff58c2;
+}
