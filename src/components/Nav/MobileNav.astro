@@ -50,12 +50,23 @@ import MobileNavMenu from './MobileNavMenu.astro'
     </div>
   </button>
   <div
-    class='hidden md:hidden absolute left-0 top-28 right-0 bottom-0'
+    class='hidden md:hidden absolute left-0 top-28 right-0 bottom-0 menu-background'
     id='mobile-menu'
   >
     <MobileNavMenu />
   </div>
 </div>
+
+<style>
+  .menu-background {
+    background-color: #fff;
+    z-index: 999;
+  }
+
+  :global(.dark) {
+    background-color: #2a2a48;
+  }
+</style>
 
 <script>
   const oneOpenTransform = 'none'

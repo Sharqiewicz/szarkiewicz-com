@@ -10,35 +10,35 @@ import Yellow from '../../assets/yellow-splash.svg'
 <section
   class='w-full container mx-auto'
 >
-  <div class='py-40 flex flex-col md:flex-row'>
-        <div class="mx-auto w-full md:w-1/3 lg:w-1/2 flex flex-col justify-center md:max-w-96">
+  <div class='py-40 flex flex-col lg:flex-row'>
+        <div class="mx-auto w-full lg:w-1/2 flex flex-col justify-center max-w-96">
             <h1 class='text-3xl md:text-3xl lg:text-4xl text-white'>Hi <span class='important'>I’m Kacper Szarkiewicz.</span>
                 I enhance the world with <span class='most-important'>top-notch Web3 software.</span></h1>
             <p class='me-description my-8 text-xl'>
                 I am dedicated to crafting high-quality solutions for frontend and mobile development. Beyond coding, I find joy in expressing myself through piano, singing, and composing music.
             </p>
-            <button class="read-blog-button hover:animate-pulse">Get in touch</button>
+            <button class="read-blog-button hover:animate-pulse">About me</button>
         </div>
-        <div class='relative w-full md:w-2/3 lg:w-1/2 splash-container'>
+        <div class='relative w-full lg:w-1/2 splash-container flex justify-center'>
             <Image
                 src={Pink}
                 alt="Pink splash"
-                class='absolute -right-10 top-0 z-20 element1'
+                class='absolute right-0 sm:-right-10 top-0 z-20 element1 w-4/12 lg:w-6/12 xl:w-4/12'
             />
             <Image
                 src={Blue}
                 alt="Blue splash"
-                class='absolute -right-10 bottom-0 z-20 element2'
+                class='absolute right-0 sm:-right-10 -bottom-20 sm:-bottom-10 lg:bottom-0 z-20 element2 w-4/12 lg:w-6/12 xl:w-4/12'
             />
             <Image
                 src={Yellow}
                 alt="Yellow splash"
-                class='absolute -left-10 -top-20 z-20 element3'
+                class='absolute left-0 top-0 lg:-left-10 lg:-top-20 z-20 element3 w-6/12 lg:w-8/12 xl:w-6/12'
             />
             <Image
                 src={MyPhoto}
                 alt="Photo of Kacper Szarkiewicz"
-                class='absolute z-50'
+                class='absolute z-50 w-10/12 md:w-full'
             />
         </div>
   </div>
@@ -70,7 +70,7 @@ import Yellow from '../../assets/yellow-splash.svg'
 }
 
 .important{
-        color: #17C3FA;
+    color: #17C3FA;
 }
 
 .most-important{
@@ -78,8 +78,38 @@ import Yellow from '../../assets/yellow-splash.svg'
 }
 
 .splash-container{
+    margin-right: auto;
+    margin-left: auto;
     max-width: 620px;
-    height: 570px;
+    margin-top: 50px !important;
+
+    @media (min-width: 641px) and (max-width: 768px) {
+        height: 420px;
+    }
+
+    @media (min-width: 531px) and (max-width: 584px) {
+        height: 400px;
+    }
+
+    @media (min-width: 585px) and (max-width: 640px){
+        height: 380px;
+    }
+
+    @media (max-width: 349px) {
+        height: 150px;
+    }
+
+    @media (min-width: 350px) and (max-width: 530px) {
+        height: 300px;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        height: 420px;
+    }
+
+    @media (min-width: 1025px) {
+        height: 570px;
+    }
 }
 
 @keyframes levitation {
