@@ -31,3 +31,21 @@ html {
 .timeline-circle-unfinished {
   background-color: #ff58c2;
 }
+
+.read-blog-button {
+  width: 190px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
+  background-color: #000;
+  color: #fff;
+}
+
+:global(.dark) .read-blog-button {
+  background-color: #fff;
+  color: #000;
+}
