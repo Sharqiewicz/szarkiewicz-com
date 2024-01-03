@@ -1,9 +1,10 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Welcome from '../components/Home/Welcome.astro'
+import WhoIAm from '../components/Home/WhoIAm.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <!doctype html>
@@ -15,7 +16,8 @@ import Welcome from '../components/Home/Welcome.astro'
     <Header />
     <main>
       <Welcome />
+      <WhoIAm />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
   </body>
 </html>

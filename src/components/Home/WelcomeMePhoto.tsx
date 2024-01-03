@@ -55,14 +55,14 @@ function DraggableImages() {
         <motion.div
           drag
           dragConstraints={constraintsRef}
-          className='absolute left-0 md:left-16 top-0 z-20'
+          className='absolute left-0 md:left-16 top-0 z-20 cursor-pointer'
         >
           <SVG_BLUE />
         </motion.div>
         <motion.div
           drag
           dragConstraints={constraintsRef}
-          className='absolute left-0 md:left-20 bottom-0 z-30'
+          className='absolute left-0 md:left-20 bottom-0 z-30 cursor-pointer'
         >
           <SVG_PINK />
         </motion.div>
@@ -70,14 +70,10 @@ function DraggableImages() {
         <motion.div
           drag
           dragConstraints={constraintsRef}
-          className='absolute right-0 top-0 z-40'
+          className='absolute right-0 top-0 z-40 cursor-pointer'
         >
           <SVG_YELLOW />
         </motion.div>
-
-        <h2 className='text-2xl lg:text-3xl z-50 absolute bottom-0 left-1/2 -translate-x-1/2 text-center'>
-          Kacper Szarkiewicz
-        </h2>
       </motion.div>
     </>
   )

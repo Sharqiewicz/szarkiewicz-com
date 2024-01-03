@@ -4,25 +4,50 @@ import HeaderLink from '../HeaderLink.astro'
 
 <div class='hidden md:ml-6 md:block'>
   <div class='flex items-center h-full'>
-    <HeaderLink href='/blog' class='dark:text-slate-100 mx-4 text-xl'>
+    <HeaderLink
+      href='/blog'
+      class='dark:text-slate-100 mx-4 text-xl text-main-dark'
+    >
       Blog
     </HeaderLink>
     <HeaderLink
       target='_blank'
       href='https://www.youtube.com/channel/UCLJiABSd-uulY0TNv1wLJaA'
-      class='dark:text-slate-100 mx-4 text-xl'
+      class='dark:text-slate-100 mx-4 text-xl text-main-dark'
     >
       Youtube
     </HeaderLink>
     <HeaderLink
       target='_blank'
       href='https://github.com/Sharqiewicz'
-      class='dark:text-slate-100 mx-4 text-xl'
+      class='dark:text-slate-100 mx-4 text-xl text-main-dark'
     >
       Github
     </HeaderLink>
-    <HeaderLink href='/about' class='dark:text-slate-100 mx-4 text-xl'>
+    <HeaderLink
+      href='/about'
+      class='dark:text-slate-100 mx-4 text-xl text-main-dark'
+    >
       About
     </HeaderLink>
   </div>
 </div>
+
+<style>
+  .text-main-dark {
+    transition: 0.5s;
+    color: #9d9d9d;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  :global(.dark) {
+    .text-main-dark {
+      &:hover {
+        color: white;
+      }
+    }
+  }
+</style>
