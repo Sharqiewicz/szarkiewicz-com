@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
+import { Temporary } from '../../components/Blog/Temporary.tsx'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 ---
 
@@ -14,25 +15,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
     <Header />
     <main>
       <section class='w-full text-center text-4xl my-20'>
-        <div class='flex justify-center items-center mb-5'>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-        </div>
-        <h1>The blog page is being build...</h1>
-        <div class='flex justify-center items-center mt-5'>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-          <p class='animate-spin'>🛠️</p>
-          <p class='animate-spin'>⚙️</p>
-        </div>
+        <Temporary client:load />
+        <h1 class='mt-5'>The page is being build...</h1>
       </section>
     </main>
     <Footer />
