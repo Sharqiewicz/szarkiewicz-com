@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import logo from '../assets/logo.svg'
+import logoLight from '../assets/logo-light.svg'
 import MobileNav from './Nav/MobileNav.astro'
 import Nav from './Nav/Nav.astro'
 import ThemeIcon from './ThemeIcon.astro'
@@ -11,10 +12,15 @@ import ThemeIcon from './ThemeIcon.astro'
     <a href='/'
       ><Image
         src={logo}
-        class='w-14 h-14'
+        class='w-10 h-10 dark:hidden svgfix'
         alt='Kacper Szarkiewicz Website Logo'
-      /></a
-    >
+      />
+      <Image
+        src={logoLight}
+        class='w-10 h-10 hidden dark:block svgfix'
+        alt='Kacper Szarkiewicz Website Logo'
+      />
+    </a>
 
     <Nav />
     <div class='flex'>
@@ -25,3 +31,9 @@ import ThemeIcon from './ThemeIcon.astro'
     </div>
   </nav>
 </header>
+
+<style>
+  .svgfix {
+    shape-renderer: crispEdges;
+  }
+</style>
