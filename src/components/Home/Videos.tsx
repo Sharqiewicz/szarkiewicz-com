@@ -44,7 +44,7 @@ const Videos = () => {
 
   const title = 'Check my latest vlogs 🎥'
   return (
-    <section className='my-20'>
+    <section className='my-20 overflow-hidden'>
       <HorizontalScrollCarousel
         items={videos}
         type={ItemTypes.VIDEO}

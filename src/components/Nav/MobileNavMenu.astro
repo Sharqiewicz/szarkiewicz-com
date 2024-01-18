@@ -2,59 +2,73 @@
 import HeaderLink from '../HeaderLink.astro'
 ---
 
-<section class='flex flex-col justify-between items-center w-full'>
-  <HeaderLink class='w-full p-10 mobile-link' href='/'>Home</HeaderLink>
-  <HeaderLink class='w-full p-10 mobile-link' href='/blog'>Blog</HeaderLink>
-  <HeaderLink
-    target='_blank'
-    class='w-full p-10 mobile-link'
-    href='https://www.youtube.com/@kszarkiewicz/featured'
-  >
-    Youtube
-  </HeaderLink>
-  <HeaderLink
-    target='_blank'
-    class='w-full p-10 mobile-link'
-    href='https://github.com/Sharqiewicz'
-  >
-    Github
-  </HeaderLink>
-  <HeaderLink
-    class='w-full p-10 mobile-link mobile-last-link mb-4'
-    href='/about'
-  >
-    About
-  </HeaderLink>
-</section>
+<section
+  class='flex flex-col justify-between items-center w-full bg-color-light dark:bg-color-main w-screen h-screen fixed'
+>
+  <ul class='w-full'>
+    <li>
+      <HeaderLink class='w-full p-10 mobile-link' href='/'>Home</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink class='w-full p-10 mobile-link' href='/blog'>Blog</HeaderLink>
+    </li>
+    <li>
+      <HeaderLink
+        target='_blank'
+        class='w-full p-10 mobile-link'
+        href='https://www.youtube.com/@kszarkiewicz/featured'
+      >
+        Youtube
+      </HeaderLink>
+    </li>
+    <li>
+      <HeaderLink
+        target='_blank'
+        class='w-full p-10 mobile-link'
+        href='https://github.com/Sharqiewicz'
+      >
+        Github
+      </HeaderLink>
+    </li>
+    <li>
+      <HeaderLink
+        class='w-full p-10 mobile-link mobile-last-link mb-4'
+        href='/about'
+      >
+        About
+      </HeaderLink>
+    </li>
+  </ul>
 
-<style>
-  :global(.dark) .mobile-link {
-    transition: 0.3s;
-    border-top: 1px solid #151524;
+  <style>
+    :global(.dark) .mobile-link {
+      transition: 0.3s;
+      border-top: 1px solid #151524;
 
-    &:hover {
-      background-color: #151524;
+      &:hover {
+        background-color: #151524;
+      }
     }
-  }
 
-  .mobile-link {
-    transition: 0.3s;
-    border-top: 1px solid #151524;
+    .mobile-link {
+      transition: 0.3s;
+      border-top: 1px solid #151524;
 
-    &:hover {
+      &:hover {
+        background-color: #e5e5e5;
+      }
+    }
+
+    .mobile-link.active {
       background-color: #e5e5e5;
     }
-  }
 
-  .mobile-link.active {
-    background-color: #e5e5e5;
-  }
+    :global(.dark) .mobile-link.active {
+      background-color: #151524;
+    }
 
-  :global(.dark) .mobile-link.active {
-    background-color: #151524;
-  }
-
-  .mobile-last-link {
-    border-bottom: 1px solid #151524;
-  }
-</style>
+    .mobile-last-link {
+      border-bottom: 1px solid #151524;
+    }
+  </style>
+</section>

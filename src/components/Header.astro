@@ -1,39 +1,30 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../assets/logo.svg'
-import logoLight from '../assets/logo-light.svg'
-import MobileNav from './Nav/MobileNav.astro'
 import Nav from './Nav/Nav.astro'
-import ThemeIcon from './ThemeIcon.astro'
+import MobileNavMenu from './Nav/MobileNavMenu.astro'
+import NavButtons from './Nav/NavButtons.astro'
+import Logo from './Nav/Logo.astro'
 ---
 
-<header class='bg-color-light dark:bg-color-main pt-6 container mx-auto'>
-  <nav class='flex items-center justify-between items-center h-14 mx-4'>
-    <a href='/'
-      ><Image
-        src={logo}
-        class='w-10 h-10 dark:hidden svgfix hover:scale-105 transition'
-        alt='Kacper Szarkiewicz Website Logo'
-      />
-      <Image
-        src={logoLight}
-        class='w-10 h-10 hidden dark:block svgfix hover:scale-105 transition'
-        alt='Kacper Szarkiewicz Website Logo'
-      />
-    </a>
-
-    <Nav />
-    <div class='flex'>
-      <div class='mr-3 md:hidden'>
-        <MobileNav />
-      </div>
-      <ThemeIcon />
-    </div>
+<header
+  class='bg-color-light dark:bg-color-main z-99 left-0 top-0 right-0'
+  id='header'
+>
+  <nav class='pt-6 container mx-auto'>
+    <section class='flex items-center justify-between items-center h-14 mx-4'>
+      <Logo />
+      <Nav />
+      <NavButtons />
+    </section>
+    <section
+      class='hidden md:hidden absolute left-0 top-28 right-0 bottom-0 menu-background'
+      id='mobile-menu'
+    >
+      <MobileNavMenu />
+    </section>
   </nav>
 </header>
-
-<style>
-  .svgfix {
-    shape-renderer: crispEdges;
-  }
-</style>
+<div
+  id='menu-bg'
+  class='bg-white dark:bg-color-main top-0 left-0 right-0 bottom-0 hidden z-80'
+>
+</div>

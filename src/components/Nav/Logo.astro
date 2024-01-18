@@ -1,0 +1,24 @@
+---
+import logo from '../../assets/logo.svg'
+import logoLight from '../../assets/logo-light.svg'
+import { Image } from 'astro:assets'
+---
+
+<a href='/'
+  ><Image
+    src={logo}
+    class='w-10 h-10 dark:hidden svgfix hover:scale-105 transition'
+    alt='Kacper Szarkiewicz Website Logo'
+  />
+  <Image
+    src={logoLight}
+    class='w-10 h-10 hidden dark:block svgfix hover:scale-105 transition'
+    alt='Kacper Szarkiewicz Website Logo'
+  />
+</a>
+
+<style>
+  .svgfix {
+    shape-renderer: crispEdges;
+  }
+</style>

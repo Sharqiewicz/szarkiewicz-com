@@ -1,5 +1,5 @@
 ---
-import MobileNavMenu from './MobileNavMenu.astro'
+
 ---
 
 <div class='block md:hidden'>
@@ -49,12 +49,6 @@ import MobileNavMenu from './MobileNavMenu.astro'
       >
     </div>
   </button>
-  <div
-    class='hidden md:hidden absolute left-0 top-28 right-0 bottom-0 menu-background'
-    id='mobile-menu'
-  >
-    <MobileNavMenu />
-  </div>
 </div>
 
 <style>
@@ -69,85 +63,65 @@ import MobileNavMenu from './MobileNavMenu.astro'
 </style>
 
 <script>
-  const oneOpenTransform = 'none'
-  const oneOpenTransformOrigin = '0px 0px'
-  const threeOpenTransform = 'none'
-  const threeOpenTransformOrigin = '0px 0px'
+  import { toggleMenu } from './mobileIconMenuAnimation.ts'
 
-  const oneClosedTransform = 'translateY(7px) rotate(45deg)'
-  const oneClosedTransformOrigin = '16px 10px'
-  const threeClosedTransform = 'translateY(-5px) rotate(-45deg)'
-  const threeClosedTransformOrigin = '16px 22px'
+  function initMenuAnimations() {
+    const menuButton = document.getElementById('menu-button')
+    const menuElements: (HTMLElement | null)[] = [
+      document.getElementById('mobile-menu'),
+      document.getElementById('menu-bg'),
+      document.getElementById('header'),
+    ]
 
-  function openMenuAnimation(
-    menuButton: HTMLButtonElement,
-    one: HTMLElement,
-    two: HTMLElement,
-    three: HTMLElement,
-  ) {
-    menuButton.disabled = true
-    one.style.transform = oneClosedTransform
-    one.style.transformOrigin = oneClosedTransformOrigin
-    two.style.opacity = '0'
-    three.style.transform = threeClosedTransform
-    three.style.transformOrigin = threeClosedTransformOrigin
+    if (
+      Object.values(menuElements).some(element => element === null) ||
+      !menuButton
+    )
+      return
 
-    setTimeout(() => {
-      menuButton.disabled = false
-    }, 300)
-  }
+    const assertMenuElements = menuElements as HTMLElement[]
 
-  function closeMenuAnimation(
-    menuButton: HTMLButtonElement,
-    one: HTMLElement,
-    two: HTMLElement,
-    three: HTMLElement,
-  ) {
-    menuButton.disabled = true
-    one.style.transform = oneOpenTransform
-    one.style.transformOrigin = oneOpenTransformOrigin
-    two.style.opacity = '1'
-    three.style.transform = threeOpenTransform
-    three.style.transformOrigin = threeOpenTransformOrigin
-
-    setTimeout(() => {
-      menuButton.disabled = false
-    }, 300)
-  }
-
-  function toggleMenu(isOpen: boolean) {
-    const one = document.getElementById('rect-one')
-    const two = document.getElementById('rect-two')
-    const three = document.getElementById('rect-three')
-    const menuButton = document.getElementById(
-      'menu-button',
-    ) as HTMLButtonElement
-
-    if (!menuButton || !one || !two || !three) return
-
-    if (isOpen) {
-      closeMenuAnimation(menuButton, one, two, three)
-    } else {
-      openMenuAnimation(menuButton, one, two, three)
-    }
-  }
-
-  const menuButton = document.getElementById('menu-button')
-  const mobileMenu = document.getElementById('mobile-menu')
-
-  if (menuButton && mobileMenu) {
     menuButton.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('block')
+      const isOpen = assertMenuElements.some(el =>
+        el.classList.contains('fixed'),
+      )
 
-      if (isOpen) {
-        mobileMenu.classList.remove('block')
-        mobileMenu.classList.add('hidden')
-      } else {
-        mobileMenu.classList.remove('hidden')
-        mobileMenu.classList.add('block')
-      }
+      console.log('isOpen')
+      console.log(isOpen)
 
+      toggleVisibility(isOpen, assertMenuElements)
       toggleMenu(isOpen)
     })
   }
+
+  function handleSpecialElementStyles(element: HTMLElement) {
+    if (element.id === 'header') {
+      element.classList.remove('fixed')
+      return true
+    }
+    return false
+  }
+
+  function toggleVisibility(isOpen: boolean, menuElements: HTMLElement[]) {
+    const firstAction = isOpen ? 'add' : 'remove'
+    const secondAction = isOpen ? 'remove' : 'add'
+    const visibility = isOpen ? 'hidden' : 'fixed'
+
+    function handleElementStyles(element: HTMLElement) {
+      element.classList[firstAction]('hidden')
+      element.classList[secondAction]('fixed')
+      element.classList.add(visibility)
+    }
+    menuElements.map(element => {
+      if (isOpen) {
+        if (!handleSpecialElementStyles(element)) {
+          handleElementStyles(element)
+        }
+      } else {
+        handleElementStyles(element)
+      }
+    })
+  }
+
+  initMenuAnimations()
 </script>
