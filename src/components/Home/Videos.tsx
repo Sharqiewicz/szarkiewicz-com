@@ -5,31 +5,36 @@ import {
 
 import { type VideoInfoType } from './VideoCard'
 
+import Technikum from '../../assets/youtube/technikum.png'
+import Rekrutacja from '../../assets/youtube/rekrutacja.png'
+import Hackyeah from '../../assets/youtube/hackyeah.png'
+import Programista from '../../assets/youtube/programista.png'
+
 const Videos = () => {
   const videos: VideoInfoType[] = [
     {
       id: 1,
-      photo: './src/assets/youtube/hackyeah.png',
+      photo: Hackyeah.src,
       lang: '🇵🇱',
-      url: 'https://www.youtube.com/watch?v=cmUkO7TBr6Q&t=74s&ab_channel=KacperSzarkiewicz',
+      url: 'https://www.youtube.com/watch?v=cmUkO7TBr6Q&t=74s',
     },
     {
       id: 2,
-      photo: './src/assets/youtube/technikum.png',
+      photo: Technikum.src,
       lang: '🇵🇱',
-      url: '',
+      url: 'https://www.youtube.com/watch?v=eb0fM2ascic',
     },
     {
       id: 3,
-      photo: './src/assets/youtube/rekrutacja.png',
+      photo: Rekrutacja.src,
       lang: '🇵🇱',
-      url: '',
+      url: 'https://www.youtube.com/watch?v=W_jP5KAs52s',
     },
     {
       id: 4,
-      photo: './src/assets/youtube/programista.png',
+      photo: Programista.src,
       lang: '🇵🇱',
-      url: '',
+      url: 'https://www.youtube.com/watch?v=IbmTyft6fWA&t=224s',
     },
   ]
 
