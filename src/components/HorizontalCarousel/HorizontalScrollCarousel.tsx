@@ -1,4 +1,3 @@
-// import { motion, useTransform, useScroll } from 'framer-motion'
 import { useRef, useEffect } from 'react'
 import { VideoCard } from '../Home/VideoCard'
 import { gsap } from 'gsap'
