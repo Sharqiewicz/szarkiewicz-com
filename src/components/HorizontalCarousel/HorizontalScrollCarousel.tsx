@@ -57,17 +57,17 @@ export const HorizontalScrollCarousel = ({
   return (
     <section ref={triggerRef}>
       <div>
-        <div className='flex flex-wrap justify-center align-items-center my-10'>
+        <div className='flex flex-wrap justify-center align-items-center my-10 mx-8'>
           {title && (
-            <h1 className='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0 mx-auto'>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0 mx-auto w-full text-center'>
               {title}
             </h1>
           )}
           {description && (
-            <p className='me-description my-8 text-xl mx-20'>{description}</p>
+            <p className='me-description my-8 text-xl'>{description}</p>
           )}
         </div>
-        <div ref={sectionRef} className='scroll-section-inner overflow-hidden'>
+        <div ref={sectionRef} className='scroll-section-inner'>
           <div className='flex'>
             {items.map(item => {
               return <ChosenItem itemInfo={item} />
