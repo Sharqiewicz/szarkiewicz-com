@@ -4,6 +4,7 @@ import Header from '../components/Header.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Welcome from '../components/Home/Welcome.astro'
 import WhoIAm from '../components/Home/WhoIAm.astro'
+import Videos from '../components/Home/Videos.tsx'
 import Footer from '../components/Footer.astro'
 ---
 
@@ -17,7 +18,10 @@ import Footer from '../components/Footer.astro'
     <main>
       <Welcome />
       <WhoIAm />
+      <Videos client:load />
     </main>
     <Footer />
+
+    ../components/HorizontalCarousel/Videos.tsx
   </body>
 </html>

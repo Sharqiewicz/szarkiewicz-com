@@ -1,136 +1,152 @@
 ---
 import { Image } from 'astro:assets'
-import MyPhoto from '../../assets/explain.png'
 import Pink from '../../assets/pink-splash.svg'
 import Blue from '../../assets/blue-splash.svg'
 import Yellow from '../../assets/yellow-splash.svg'
+import BoardPhoto from './BoardPhoto'
 ---
 
-<div class='bg-color-main-dark overflow-hidden'>
-<section
-  class='w-full container mx-auto'
->
-  <div class='py-40 flex flex-col lg:flex-row mx-4 md:mx-0'>
-        <div class="mx-auto w-full lg:w-1/2 flex flex-col justify-center max-w-96">
-            <h1 class='text-3xl md:text-3xl lg:text-4xl text-white'>Hi <span class='important'>I’m Kacper Szarkiewicz.</span>
-                I enhance the world with <span class='most-important'>top-notch Web3 software.</span></h1>
-            <p class='me-description my-8 text-xl'>
-                I am dedicated to crafting high-quality solutions for frontend and mobile development. Beyond coding, I find joy in expressing myself through piano, singing, and composing music.
-            </p>
-            <a href='/about' class="read-blog-button hover:animate-pulse">About me</a>
-        </div>
-        <div class='relative w-full lg:w-1/2 splash-container flex justify-center'>
-            <Image
-                src={Pink}
-                alt="Pink splash"
-                class='absolute right-0 sm:-right-10 top-0 z-20 element1 w-4/12 lg:w-6/12 xl:w-4/12'
-            />
-            <Image
-                src={Blue}
-                alt="Blue splash"
-                class='absolute right-0 sm:-right-10 -bottom-20 sm:-bottom-10 lg:bottom-0 z-20 element2 w-4/12 lg:w-6/12 xl:w-4/12'
-            />
-            <Image
-                src={Yellow}
-                alt="Yellow splash"
-                class='absolute left-0 top-0 lg:-left-10 lg:-top-20 z-20 element3 w-6/12 lg:w-8/12 xl:w-6/12'
-            />
-            <Image
-                src={MyPhoto}
-                alt="Photo of Kacper Szarkiewicz"
-                class='absolute z-50 w-10/12 md:w-full'
-            />
-        </div>
-  </div>
-</section>
+<div class='bg-color-main-dark overflow-hidden relative'>
+  <section class='w-full container mx-auto'>
+    <div class='py-40 flex flex-col lg:flex-row mx-4 md:mx-0'>
+      <div
+        class='mx-auto w-full lg:w-1/2 flex flex-col justify-center max-w-96'
+      >
+        <h1 class='text-3xl md:text-3xl lg:text-4xl text-white'>
+          Hi <span class='important'>I’m Kacper Szarkiewicz.</span>
+          I enhance the world with <span class='most-important'
+            >top-notch Web3 software.</span
+          >
+        </h1>
+        <p class='me-description my-8 text-xl'>
+          I am dedicated to crafting high-quality solutions for frontend and
+          mobile development. Beyond coding, I find joy in expressing myself
+          through piano, singing, and composing music.
+        </p>
+        <a
+          href='/about'
+          class='read-blog-button hover:scale-105 transition relative z-60'
+          >About me</a
+        >
+      </div>
+      <div
+        class='relative w-full lg:w-1/2 splash-container flex justify-center'
+      >
+        <Image
+          style={{ userSelect: 'none', pointerEvents: 'none' }}
+          src={Pink}
+          alt='Pink splash'
+          class='absolute right-0 sm:-right-10 top-0 z-20 element1 w-4/12 lg:w-6/12 xl:w-4/12'
+        />
+        <Image
+          style={{ userSelect: 'none', pointerEvents: 'none' }}
+          src={Blue}
+          alt='Blue splash'
+          class='absolute right-0 sm:-right-10 -bottom-20 sm:-bottom-10 lg:bottom-0 z-20 element2 w-4/12 lg:w-6/12 xl:w-4/12'
+        />
+        <Image
+          style={{ userSelect: 'none', pointerEvents: 'none' }}
+          src={Yellow}
+          alt='Yellow splash'
+          class='absolute left-0 top-0 lg:-left-10 lg:-top-20 z-20 element3 w-6/12 lg:w-8/12 xl:w-6/12 h-96'
+        />
+      </div>
+    </div>
+    <BoardPhoto
+      customClass='absolute z-50 bottom-24 sm:top-1/2 lg:top-1/4 sm:right-10'
+      client:load
+    />
+  </section>
 </div>
 
-
-
 <style>
-
-.text-white{
+  .z-60 {
+    z-index: 60;
+  }
+  .text-white {
     color: #fff !important;
-}
-.me-description{
-    color: #9D9D9D;
-}
+  }
 
-.read-blog-button{
+  .read-blog-button {
     width: 190px;
     text-align: center;
     background-color: white;
-    padding: 10px ;
+    padding: 10px;
     border-radius: 10px;
     font-size: 1.2rem;
     margin-top: 20px;
     transition: all 0.2s ease-in-out;
     background-color: #fff;
     color: #000;
-}
+  }
 
-.important{
-    color: #17C3FA;
-}
+  .important {
+    color: #17c3fa;
+  }
 
-.most-important{
-    color: #FFD705;
-}
+  .most-important {
+    color: #ffd705;
+  }
 
-.splash-container{
+  .splash-container {
     margin-right: auto;
     margin-left: auto;
     max-width: 620px;
     margin-top: 50px !important;
 
     @media (min-width: 641px) and (max-width: 768px) {
-        height: 420px;
+      height: 420px;
     }
 
     @media (min-width: 531px) and (max-width: 584px) {
-        height: 400px;
+      height: 400px;
     }
 
-    @media (min-width: 585px) and (max-width: 640px){
-        height: 380px;
+    @media (min-width: 585px) and (max-width: 640px) {
+      height: 380px;
     }
 
     @media (max-width: 349px) {
-        height: 150px;
+      height: 150px;
     }
 
     @media (min-width: 350px) and (max-width: 530px) {
-        height: 300px;
+      height: 300px;
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
-        height: 420px;
+      height: 420px;
     }
 
     @media (min-width: 1025px) {
-        height: 570px;
+      height: 570px;
     }
-}
+  }
 
-@keyframes levitation {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
+  @keyframes levitation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
-.element1 {
-  animation: levitation 12s infinite;
-  animation-delay: 0s;
-}
+  .element1 {
+    animation: levitation 6s infinite;
+    animation-delay: 0s;
+  }
 
-.element2 {
-  animation: levitation 12s infinite;
-  animation-delay: 0.5s;
-}
+  .element2 {
+    animation: levitation 6s infinite;
+    animation-delay: 0.5s;
+  }
 
-.element3 {
-  animation: levitation 12s infinite;
-  animation-delay: 1s;
-}
-</style>
+  .element3 {
+    animation: levitation 6s infinite;
+    animation-delay: 1s;
+  }
 </style>
