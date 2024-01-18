@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import createHoverAnimation from '../hooks/createHoverAnimation.tsx'
+import mePhoto from '../../assets/explain.png'
 
 interface BoardPhotoProps {
   customClass: string
@@ -23,7 +24,7 @@ const BoardPhoto: React.FC<BoardPhotoProps> = ({ customClass }) => {
             userSelect: 'none',
             pointerEvents: 'none',
           }}
-          src='./src/assets/explain.png'
+          src={mePhoto}
           alt='Photo of Kacper Szarkiewicz'
         />
       </div>
