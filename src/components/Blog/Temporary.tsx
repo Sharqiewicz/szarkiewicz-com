@@ -30,31 +30,11 @@ function Sphere(props: any) {
 }
 
 export function Temporary() {
-  const [isLightBottom, setIsLightBottom] = useState(true)
-
   return (
-    <>
-      <div>
-        <Canvas className='bg-black rounded-full' style={{ height: 500 }}>
-          <pointLight
-            position={[0, -10, 0]}
-            decay={0}
-            intensity={isLightBottom ? 3 : 1}
-          />
+    <Canvas className='bg-black' style={{ height: 500 }}>
+      <pointLight position={[0, -30, 0]} decay={0} intensity={2} />
 
-          <Sphere position={[0, 0, -50]} />
-          <Sphere position={[100, 100, -50]} />
-          <Sphere position={[100, -200, -50]} />
-          <OrbitControls makeDefault />
-        </Canvas>
-      </div>
-
-      <button
-        className='mt-3'
-        onClick={() => setIsLightBottom(state => !state)}
-      >
-        {isLightBottom ? '💡' : '👜'}
-      </button>
-    </>
+      <Sphere position={[0, 0, -30]} />
+    </Canvas>
   )
 }
