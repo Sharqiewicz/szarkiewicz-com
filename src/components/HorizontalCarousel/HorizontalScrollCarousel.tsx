@@ -68,7 +68,7 @@ export const HorizontalScrollCarousel = ({
             <p className='me-description my-8 text-xl mx-20'>{description}</p>
           )}
         </div>
-        <div ref={sectionRef} className='scroll-section-inner'>
+        <div ref={sectionRef} className='scroll-section-inner overflow-hidden'>
           <div className='flex'>
             {items.map(item => {
               return <ChosenItem itemInfo={item} />
