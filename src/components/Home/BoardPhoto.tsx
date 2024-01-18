@@ -24,7 +24,7 @@ const BoardPhoto: React.FC<BoardPhotoProps> = ({ customClass }) => {
             userSelect: 'none',
             pointerEvents: 'none',
           }}
-          src={mePhoto}
+          src={mePhoto.src}
           alt='Photo of Kacper Szarkiewicz'
         />
       </div>
