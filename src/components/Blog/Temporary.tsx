@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256)

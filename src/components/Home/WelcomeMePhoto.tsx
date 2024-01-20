@@ -16,7 +16,7 @@ const SVG_YELLOW = () => (
   </motion.svg>
 )
 
-const SVG_BLUE = () => (
+export const SVG_BLUE = () => (
   <motion.svg
     width='246'
     height='240'

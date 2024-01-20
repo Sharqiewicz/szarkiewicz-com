@@ -10,7 +10,6 @@ import Technikum from '../../assets/youtube/technikum.png'
 import Rekrutacja from '../../assets/youtube/rekrutacja.png'
 import Hackyeah from '../../assets/youtube/hackyeah.png'
 import Programista from '../../assets/youtube/programista.png'
-import { MovieLottie } from './MovieLottie'
 
 const Videos = () => {
   const videos: VideoInfoType[] = [
@@ -44,23 +43,18 @@ const Videos = () => {
   I do and what I plan to do. I show my personality and my sense of
   humor. Videos in Polish 🇵🇱`
 
-  const title = 'Check my latest vlogs 🎥'
+  const title = 'Check out my latest vlogs'
 
   const ref = useRef<HTMLDivElement | null>(null)
 
   return (
     <section className='overflow-hidden' ref={ref}>
       <div className='flex w-full justify-center items-center'>
-        <MovieLottie />
         <h2 className='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0 mx-auto'>
-          Check out my latest vlogs
+          {title}
         </h2>
       </div>
-      <p className='me-description my-8 text-xl'>
-        I make videos about my life as a programmer. I show what I learn, what I
-        do and what I plan to do. I show my personality and my sense of humor.
-        Videos in Polish 🇵🇱
-      </p>
+      <p className='me-description my-8 text-xl'>{description}</p>
       <HorizontalScrollCarousel
         ref={ref}
         items={videos}

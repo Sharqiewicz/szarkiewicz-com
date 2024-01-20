@@ -105,3 +105,7 @@ html {
 .z-99 {
   z-index: 999;
 }
+
+.most-important {
+  color: #fa1dff;
+}
