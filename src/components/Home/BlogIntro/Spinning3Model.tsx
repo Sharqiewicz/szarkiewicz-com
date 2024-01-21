@@ -16,7 +16,7 @@ const Model: React.FC<CoffeeObjectProps> = ({
   shouldRotate = true,
 }) => {
   const { scene } = useGLTF(modelPath)
-  const ref = useRef()
+  const ref = useRef<THREE.Object3D>()
 
   useFrame(({ clock }) => {
     if (ref.current && shouldRotate) {

@@ -42,7 +42,7 @@ export const HorizontalScrollCarousel = forwardRef(
           ease: 'none',
           duration: 1,
           scrollTrigger: {
-            trigger: ref.current,
+            trigger: (ref as React.MutableRefObject<any>).current,
             start: 'top top',
             end: '2000 top',
             scrub: 0.6,

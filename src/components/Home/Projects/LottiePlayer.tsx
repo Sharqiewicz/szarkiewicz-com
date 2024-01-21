@@ -6,16 +6,16 @@ import { LottieScrollTrigger } from './LottieScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 interface LottiePlayerProps {
-  options: any
+  src: string
 }
 
-export const LottiePlayer: React.FC<LottiePlayerProps> = ({ options }) => {
+export const LottiePlayer: React.FC<LottiePlayerProps> = ({ src }) => {
   const container = useRef(null)
 
   useEffect(() => {
     LottieScrollTrigger({
       target: '#lottie-player',
-      path: './src/assets/lottie/movie-lottie.json',
+      path: src,
       speed: 'medium',
       startFrame: 10,
     })
