@@ -28,3 +28,16 @@ import Logo from '../Nav/Logo.astro'
   class='bg-white dark:bg-color-main top-0 left-0 right-0 bottom-0 hidden z-80'
 >
 </span>
+
+<script>
+  import Lenis from '@studio-freight/lenis'
+
+  const lenis = new Lenis()
+
+  function raf(time: any) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+
+  requestAnimationFrame(raf)
+</script>

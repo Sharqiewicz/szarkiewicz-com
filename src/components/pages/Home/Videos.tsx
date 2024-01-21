@@ -51,7 +51,7 @@ const Videos = () => {
   return (
     <section className='overflow-hidden' ref={ref}>
       <div className='flex w-full justify-center items-center'>
-        <LottiePlayer src='./src/assets/lottie/movie-lottie.json' />
+        <LottiePlayer src='./lottie/movie-lottie.json' />
         <h2 className='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0 mx-auto'>
           {title}
         </h2>

@@ -25,17 +25,5 @@ import Projects from '../components/pages/Home/Projects.astro'
       <Videos client:load />
     </main>
     <Footer />
-    <script>
-      import Lenis from '@studio-freight/lenis'
-
-      const lenis = new Lenis()
-
-      function raf(time: any) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
-
-      requestAnimationFrame(raf)
-    </script>
   </body>
 </html>
