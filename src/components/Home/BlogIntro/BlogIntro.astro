@@ -1,5 +1,5 @@
 ---
-import { Coffee } from './Coffee.tsx'
+import { Spinning3Model } from './Spinning3Model.tsx'
 import { BlogpostPreview } from './BlogpostPreview'
 ---
 
@@ -17,7 +17,7 @@ import { BlogpostPreview } from './BlogpostPreview'
       <span class='mx-5 md:mx-0'><BlogpostPreview /></span>
     </div>
     <div class='w-full lg:w-1/3 order-2 lg:order-last'>
-      <Coffee client:load />
+      <Spinning3Model client:load modelPath='/3dmodels/cup/scene.gltf' />
     </div>
   </div>
 </section>

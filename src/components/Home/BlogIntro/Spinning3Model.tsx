@@ -2,22 +2,39 @@ import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 
-const CoffeeObject = () => {
-  const coffee = useGLTF('/3dmodels/cup/scene.gltf')
+interface CoffeeObjectProps {
+  modelPath: string
+  positionY?: number
+  rotationY?: number
+  shouldRotate?: boolean
+}
+
+const Model: React.FC<CoffeeObjectProps> = ({
+  modelPath,
+  positionY = 0,
+  rotationY = 0,
+  shouldRotate = true,
+}) => {
+  const { scene } = useGLTF(modelPath)
   const ref = useRef()
 
   useFrame(({ clock }) => {
-    if (ref.current) {
+    if (ref.current && shouldRotate) {
       ref.current.rotation.y = clock.getElapsedTime()
     }
   })
 
   return (
-    <primitive object={coffee.scene} ref={ref} position-y={0} rotation-y={0} />
+    <primitive
+      object={scene}
+      ref={ref}
+      position-y={positionY}
+      rotation-y={rotationY}
+    />
   )
 }
 
-const Coffee = () => {
+const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
   return (
     <Canvas
       style={{ height: 500 }}
@@ -38,11 +55,11 @@ const Coffee = () => {
       <spotLight position={[0, 0, -200]} decay={0} intensity={5} />
       <spotLight position={[200, 0, 0]} decay={0} intensity={5} />
       <spotLight position={[-200, 0, 0]} decay={0} intensity={5} />
-      <CoffeeObject />
+      <Model {...props} />
 
       <Preload all />
     </Canvas>
   )
 }
 
-export { Coffee }
+export { Spinning3Model }
