@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 
 const CoffeeObject = () => {
-  const coffee = useGLTF('./src/assets/3dmodels/cup/scene.gltf')
+  const coffee = useGLTF('/3dmodels/cup/scene.gltf')
   const ref = useRef()
 
   useFrame(({ clock }) => {

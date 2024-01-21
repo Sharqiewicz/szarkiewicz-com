@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 
 const BananaObject = () => {
-  const Banana = useGLTF('./src/assets/3dmodels/banana/scene.gltf')
+  const Banana = useGLTF('/3dmodels/banana/scene.gltf')
   const ref = useRef()
 
   useFrame(({ clock }) => {
