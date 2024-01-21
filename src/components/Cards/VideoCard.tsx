@@ -1,3 +1,10 @@
+export type VideoInfoType = {
+  url: string
+  lang: string
+  id: number
+  photo: string
+}
+
 export const VideoCard = ({ itemInfo }: { itemInfo: VideoInfoType }) => (
   <article className='relative mb-20 ml-[10vw] rounded'>
     <div className=' w-[60vw] lg:w-[60vw] max-w-[800px] relative z-30 rounded-lg'>
@@ -19,10 +26,3 @@ export const VideoCard = ({ itemInfo }: { itemInfo: VideoInfoType }) => (
     </span>
   </article>
 )
-
-export type VideoInfoType = {
-  url: string
-  lang: string
-  id: number
-  photo: string
-}

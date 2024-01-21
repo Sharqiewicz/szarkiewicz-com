@@ -1,5 +1,5 @@
 ---
-import { Banana } from './Banana'
+import { Spinning3Model } from '../../Spinning3Model/Spinning3Model'
 ---
 
 <section class='py-10'>
@@ -16,6 +16,10 @@ import { Banana } from './Banana'
         >spin the banana instead.</span
       >
     </p>
-    <Banana client:load />
+    <Spinning3Model
+      client:load
+      modelPath='/3dmodels/banana/scene.gltf'
+      canvasOptions={{ camera: { position: [0, 0, 20] } }}
+    />
   </div>
 </section>

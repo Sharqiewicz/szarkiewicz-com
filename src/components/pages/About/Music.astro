@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets'
+import MusicProfile from '../../../assets/music-me.png'
+import Spotify from '../../../assets/spotify.svg'
+import PianoVideo from '../../../assets/piano-video.mp4'
+import { MusicTimeline } from './MusicTimeline/MusicTimeline'
+---
+
+<div class='bg-color-main-dark overflow-hidden mt-10 music-section px-5'>
+  <section class='w-full container mx-auto flex flex-wrap my-8'>
+    <div class='w-full sm:w-3/4'>
+      <div class='w-full flex'>
+        <a
+          target='_blank'
+          href='https://open.spotify.com/artist/4vH9nb7QCTcM7S3v63MU9C?si=9kL8D59eSemVntPz4jJTxw'
+          class='w-96 rounded-lg hover:animate-pulse'
+        >
+          <Image
+            src={MusicProfile}
+            alt='Photo of Kacper Szarkiewicz'
+            class='rounded-lg'
+          />
+        </a>
+        <div class='mx-5'>
+          <h1 class='text-2xl'>Exploring the Harmony of Code and Melody</h1>
+          <p class='text-lg text-description mt-6'>
+            In 2022, I began my journey with music. Once I reached my desired
+            level of programming understanding and IT expertise, I started
+            working on my own music. I sing, compose, and play the piano.
+          </p>
+        </div>
+      </div>
+      <div class='w-full mt-10'>
+        <a
+          target='_blank'
+          class='flex items-center'
+          href='https://open.spotify.com/artist/4vH9nb7QCTcM7S3v63MU9C?si=9kL8D59eSemVntPz4jJTxw'
+        >
+          <Image
+            src={Spotify}
+            alt='Spotify icon'
+            class='hover:animate-pulse mr-5 h-20 w-20'
+          />
+          <p>Follow my music on Spotify</p>
+        </a>
+      </div>
+      <div class='w-full mt-10 ml-2 flex sm:block'>
+        <div class='w-1/2 sm:w-full'>
+          <MusicTimeline />
+        </div>
+        <div class='w-1/2 sm:w-0'>
+          <video controls class='w-96 rounded-lg'>
+            <source src={PianoVideo} type='video/mp4' />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class='w-0 sm:w-1/4'>
+      <video controls class='w-96 rounded-lg'>
+        <source src={PianoVideo} type='video/mp4' />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+</div>
+
+<style>
+  .music-section {
+    color: white;
+  }
+
+  .text-description {
+    color: #9d9d9d;
+  }
+</style>
+./MusicTimeline/MusicTimeline.tsx

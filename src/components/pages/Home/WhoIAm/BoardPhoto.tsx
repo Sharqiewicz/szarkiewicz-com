@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import createHoverAnimation from '../hooks/createHoverAnimation.tsx'
-import mePhoto from '../../assets/explain.png'
+import createHoverAnimation from '../../../hooks/createHoverAnimation.tsx'
+import mePhoto from '../../../../assets/explain.png'
 
 interface BoardPhotoProps {
   customClass: string

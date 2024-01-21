@@ -1,5 +1,5 @@
 import { useRef, useEffect, forwardRef } from 'react'
-import { VideoCard } from '../Home/VideoCard'
+import { VideoCard } from '../Cards/VideoCard'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 

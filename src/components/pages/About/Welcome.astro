@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets'
+import MyPhoto from '../../../assets/about-me-1.png'
+import MyPhotoLight from '../../../assets/about-me-1-light.png'
+import SmallYellowSplash from '../../../assets/small-yellow-splash.svg'
+import YellowSplash from '../../../assets/yellow-splash.svg'
+---
+
+<section class='w-full container mx-auto mt-10 flex flex-col lg:flex-row'>
+  <div class='relative py-20 w-full px-10 xl:px-0 lg:mx-20 my-20'>
+    <div class='w-full'>
+      <Image
+        src={SmallYellowSplash}
+        alt='Small Yellow Splash'
+        class='absolute bottom-0 left-24 z-20 hidden lg:block'
+      />
+      <Image
+        src={YellowSplash}
+        alt='Yellow Splash'
+        class='absolute -top-40 left-24 z-20 -rotate-90 hidden sm:block'
+      />
+      <Image
+        src={MyPhoto}
+        alt='Photo of Kacper Szarkiewicz'
+        style={{ userSelect: 'none', pointerEvents: 'none' }}
+        class='z-40 relative photo-dark lg:w-2/3 hidden lg:block rounded-lg'
+      />
+      <Image
+        src={MyPhotoLight}
+        alt='Photo of Kacper Szarkiewicz'
+        style={{ userSelect: 'none', pointerEvents: 'none' }}
+        class='z-40 relative photo-light lg:w-2/3 hidden lg:block rounded-lg'
+      />
+    </div>
+
+    <div
+      class='w-full mt-10 lg:mt-0 relative z-30 lg:absolute lg:right-0 lg:top-28 xl:top-1/4 z-50 lg:w-1/2'
+    >
+      <h1 class='text-4xl sm:text-5xl lg:text-3xl xl:text-5xl'>
+        Hi I am Kacper Szarkiewicz.
+      </h1>
+
+      <h2 class='text-3xl sm:text-4xl lg:text-2xl xl:text-4xl mt-2'>
+        Software Engineer passionate about the world of Web3.
+      </h2>
+      <h3
+        class='text-xl sm:text-2xl lg:text-xl xl:text-2xl text-description mt-10 lg:mt-4 xl:mt-10'
+      >
+        I help exploring and mastering the art of creating quality software in
+        the Web3 landscape.
+      </h3>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-description {
+    color: #9d9d9d !important;
+  }
+
+  .photo-dark {
+    display: none;
+  }
+  :global(.dark) .photo-dark {
+    display: block;
+  }
+
+  .photo-light {
+    display: block;
+  }
+
+  :global(.dark) .photo-light {
+    display: none;
+  }
+</style>

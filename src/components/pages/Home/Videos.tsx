@@ -2,15 +2,15 @@ import { useRef } from 'react'
 import {
   HorizontalScrollCarousel,
   ItemTypes,
-} from '../HorizontalCarousel/HorizontalScrollCarousel'
+} from '../../HorizontalCarousel/HorizontalScrollCarousel'
 
-import { type VideoInfoType } from './VideoCard'
+import { type VideoInfoType } from '../../Cards/VideoCard'
 
-import Technikum from '../../assets/youtube/technikum.png'
-import Rekrutacja from '../../assets/youtube/rekrutacja.png'
-import Hackyeah from '../../assets/youtube/hackyeah.png'
-import Programista from '../../assets/youtube/programista.png'
-import { LottiePlayer } from './Projects/LottiePlayer'
+import Technikum from '../../../assets/youtube/technikum.png'
+import Rekrutacja from '../../../assets/youtube/rekrutacja.png'
+import Hackyeah from '../../../assets/youtube/hackyeah.png'
+import Programista from '../../../assets/youtube/programista.png'
+import { LottiePlayer } from '../../LottiePlayer/LottiePlayer'
 
 const Videos = () => {
   const videos: VideoInfoType[] = [

@@ -5,6 +5,14 @@
 @layer components {
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 html.dark {
   color: #fff;
 }
@@ -15,28 +23,6 @@ html.dark {
 
 html {
   font-family: 'Nunito', sans-serif;
-}
-
-@font-face {
-  font-family: 'Nunito';
-  src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-.logo {
-  font-family: 'Nunito', sans-serif;
-  font-size: 38px;
-  font-weight: bold;
-}
-
-.timeline-circle {
-  background-color: #1db954;
-}
-
-.timeline-circle-unfinished {
-  background-color: #ff58c2;
 }
 
 .read-blog-button {

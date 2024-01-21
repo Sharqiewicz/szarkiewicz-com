@@ -7,6 +7,7 @@ interface CoffeeObjectProps {
   positionY?: number
   rotationY?: number
   shouldRotate?: boolean
+  canvasOptions?: any
 }
 
 const Model: React.FC<CoffeeObjectProps> = ({
@@ -42,6 +43,7 @@ const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
       frameloop='demand'
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
+      {...props.canvasOptions}
     >
       <OrbitControls
         autoRotate

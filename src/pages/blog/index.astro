@@ -1,10 +1,10 @@
 ---
 import BaseHead from '../../components/BaseHead.astro'
-import Header from '../../components/Header.astro'
+import Header from '../../components/Header/Header.astro'
 import Footer from '../../components/Footer.astro'
-import { Temporary } from '../../components/Blog/Temporary.tsx'
+import { Temporary } from '../../components/pages/Blog/Temporary.tsx'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
-import Videos from '../../components/Home/Videos'
+import Videos from '../../components/pages/Home/Videos'
 ---
 
 <!doctype html>
@@ -44,5 +44,7 @@ import Videos from '../../components/Home/Videos'
         width: 100%;
       }
     </style>
+
+    ../../components/pages/Home/Videos.tsx
   </body>
 </html>
