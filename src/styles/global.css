@@ -92,6 +92,14 @@ html {
   z-index: 999;
 }
 
-.most-important {
+.text--blue {
+  color: #17c3fa;
+}
+
+.text--yellow {
+  color: #ffd705;
+}
+
+.text--pink {
   color: #fa1dff;
 }
