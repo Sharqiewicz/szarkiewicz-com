@@ -51,13 +51,13 @@ const Videos = () => {
   return (
     <section className='overflow-hidden' ref={ref}>
       <div className='container mx-auto'>
-        <div className='flex w-full justify-center items-center'>
+        <div className='flex w-full justify-center items-center flex-wrap'>
           <LottiePlayer src='./lottie/movie-lottie.json' />
-          <h2 className='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0 mx-auto'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl mx-4 lg:mx-auto w-full md:w-1/2'>
             {title}
           </h2>
         </div>
-        <p className='me-description mb-12 text-xl'>{description}</p>
+        <p className='me-description mb-12 text-xl mx-4'>{description}</p>
       </div>
       <HorizontalScrollCarousel
         ref={ref}
