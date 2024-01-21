@@ -1,9 +1,12 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
+import path from 'path'
 
 const BananaObject = () => {
-  const Banana = useGLTF('./src/assets/3dmodels/banana/scene.gltf')
+  const Banana = useGLTF(
+    path.resolve('./src/assets/3dmodels/banana/scene.gltf'),
+  )
   const ref = useRef()
 
   useFrame(({ clock }) => {
