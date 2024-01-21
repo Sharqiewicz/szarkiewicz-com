@@ -45,13 +45,7 @@ const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
       gl={{ preserveDrawingBuffer: true }}
       {...props.canvasOptions}
     >
-      <OrbitControls
-        autoRotate
-        enableZoom={false}
-        maxPolarAngle={Math.PI / 2.5}
-        minPolarAngle={Math.PI / 2.5}
-        autoRotateSpeed={10}
-      />
+      <OrbitControls autoRotate enableZoom={false} autoRotateSpeed={10} />
 
       <spotLight position={[0, 0, 200]} decay={0} intensity={5} />
       <spotLight position={[0, 0, -200]} decay={0} intensity={5} />
