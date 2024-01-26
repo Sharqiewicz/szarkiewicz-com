@@ -2,7 +2,7 @@
 import Nav from '../Nav/Nav.astro'
 import MobileNavMenu from '../Nav/MobileNavMenu.astro'
 import NavButtons from '../Nav/NavButtons.astro'
-import Logo from '../Nav/Logo.astro'
+import { Logo } from '../Nav/Logo/Logo.tsx'
 ---
 
 <header
@@ -11,7 +11,7 @@ import Logo from '../Nav/Logo.astro'
 >
   <nav class='pt-6 container mx-auto'>
     <section class='flex items-center justify-between items-center h-14 mx-4'>
-      <Logo />
+      <Logo client:load />
       <Nav />
       <NavButtons />
     </section>
@@ -28,7 +28,7 @@ import Logo from '../Nav/Logo.astro'
   class='bg-white dark:bg-color-main top-0 left-0 right-0 bottom-0 hidden z-80'
 >
 </span>
-
+<div class='cursor'></div>
 <script>
   import Lenis from '@studio-freight/lenis'
 

@@ -1,72 +1,67 @@
 ---
-import { Image } from 'astro:assets'
-import MyPhoto from '../../../../assets/my-photo.png'
-import WelcomeMePhoto from './WelcomeMePhoto'
+import { WelcomePhotoSection } from './WelcomePhotoSection'
 ---
 
-<section
-  class='w-full container mx-auto mt-10 flex flex-col md:flex-row justify-between'
->
-  <div
-    class='mb-10 md:mb-0 w-full md:w-1/3 lg:w-1/2 flex flex-col items-center md:items-start justify-center md:max-w-96'
+<div class='overflow-hidden'>
+  <section
+    class='w-full container mx-auto mt-10 flex flex-col md:flex-row justify-between pt-12'
   >
-    <h1 class='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0'>
-      <span class='text--blue'>Hi, I'm Sharqi!</span>
-      Let’s create
-      <span class='text--yellow'>the finest software</span>
-      <span class='text--pink'>together.</span>
-    </h1>
-    <a href='/blog' class='read-blog-button hover:scale-105 transition'
-      >Read Blog</a
+    <div
+      class='mb-10 md:mb-0 w-full md:w-1/3 lg:w-1/2 flex flex-col items-center md:items-start justify-center md:max-w-96'
     >
-    <a
-      href='https://www.youtube.com/@kszarkiewicz/featured'
-      target='_blank'
-      class='watch-youtube-button hover:scale-105 transition'>Watch Youtube</a
-    >
-  </div>
-  <div class='relative w-full md:w-2/3 lg:w-1/2 splash-container'>
-    <WelcomeMePhoto client:load />
-    <Image
-      class='absolute z-50 bottom-0 left-1/2 -translate-x-1/2'
-      src={MyPhoto}
-      alt='Photo of Kacper Szarkiewicz'
-      style={{ userSelect: 'none', pointerEvents: 'none' }}
-    />
-  </div>
-</section>
+      <h1 class='text-3xl md:text-4xl lg:text-5xl mx-12 md:mx-0'>
+        <span class='text--blue'>Hi, I'm Sharqi!</span>
+        Let’s create
+        <span class='text--yellow'>the finest software</span>
+        <span class='text--pink'>together.</span>
+      </h1>
+      <a href='/about' class='read-blog-button hover:scale-105 transition'
+        >My Experience.</a
+      >
+      <a
+        href='https://www.youtube.com/@kszarkiewicz/featured'
+        target='_blank'
+        class='watch-youtube-button hover:scale-105 transition'
+        >Youtube Channel</a
+      >
+    </div>
+    <div class='relative w-full md:w-2/3 lg:w-1/2 splash-container'>
+      <WelcomePhotoSection client:load />
+    </div>
+  </section>
 
-<style>
-  .splash-container {
-    @media (max-width: 349px) {
-      overflow: hidden;
+  <style>
+    .splash-container {
+      @media (max-width: 349px) {
+        overflow: hidden;
+      }
     }
-  }
 
-  .splash-container {
-    max-width: 620px;
-    height: 570px;
-  }
-
-  .blue {
-    color: #17c3fa;
-  }
-
-  .important {
-    color: #ffd705;
-  }
-
-  :global(.dark) .watch-youtube-button {
-    color: #fff;
-    border: 2px solid white;
-
-    &:hover {
-      border: 2px solid #fa1dff;
+    .splash-container {
+      max-width: 620px;
+      height: 570px;
     }
-  }
 
-  :global(.dark) .read-blog-button {
-    background-color: #fff;
-    color: #000;
-  }
-</style>
+    .blue {
+      color: #17c3fa;
+    }
+
+    .important {
+      color: #ffd705;
+    }
+
+    :global(.dark) .watch-youtube-button {
+      color: #fff;
+      border: 2px solid white;
+
+      &:hover {
+        border: 2px solid #fa1dff;
+      }
+    }
+
+    :global(.dark) .read-blog-button {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</div>

@@ -10,7 +10,7 @@ import Technikum from '../../../assets/youtube/technikum.png'
 import Rekrutacja from '../../../assets/youtube/rekrutacja.png'
 import Hackyeah from '../../../assets/youtube/hackyeah.png'
 import Programista from '../../../assets/youtube/programista.png'
-import { LottiePlayer } from '../../LottiePlayer/LottiePlayer'
+import { LottiePlayer } from '../../LottiePlayer/LottieScrollPlayer'
 
 const Videos = () => {
   const videos: VideoInfoType[] = [

@@ -1,9 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { LottieScrollTrigger } from './LottieScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import lottie from 'lottie-web'
 
 interface LottiePlayerProps {
   src: string
@@ -13,13 +9,20 @@ export const LottiePlayer: React.FC<LottiePlayerProps> = ({ src }) => {
   const container = useRef(null)
 
   useEffect(() => {
-    LottieScrollTrigger({
-      target: '#lottie-player',
-      path: src,
-      speed: 'medium',
-      startFrame: 10,
-    })
-  }, [])
+    if (container.current === null) return
 
-  return <div ref={container} id='lottie-player' />
+    const animation = lottie.loadAnimation({
+      container: container.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: src,
+    })
+
+    return () => {
+      animation.destroy()
+    }
+  }, [src])
+
+  return <div ref={container} />
 }

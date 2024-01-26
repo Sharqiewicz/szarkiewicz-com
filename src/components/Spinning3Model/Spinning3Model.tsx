@@ -40,7 +40,7 @@ const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
     <Canvas
       style={{ height: 500 }}
       shadows
-      frameloop='demand'
+      frameloop='always'
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
       {...props.canvasOptions}

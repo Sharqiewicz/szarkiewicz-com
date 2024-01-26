@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { FramerMagnetic } from '../../../FramerMagnetic/FramerMagnetic'
 
 const SVG_YELLOW = () => (
   <motion.svg
@@ -46,37 +48,48 @@ const SVG_PINK = () => (
   </motion.svg>
 )
 
-function DraggableImages() {
-  const constraintsRef = useRef(null)
+export const WelcomeMagneticSplashes = () => {
+  const blueRef = useRef(null)
+  const pinkRef = useRef(null)
+  const yellowRef = useRef(null)
+
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.from(blueRef.current, { autoAlpha: 0, duration: 1 })
+      .from(pinkRef.current, { autoAlpha: 0, duration: 1 })
+      .from(yellowRef.current, { autoAlpha: 0, duration: 1 })
+  }, [])
 
   return (
     <>
-      <motion.div ref={constraintsRef}>
-        <motion.div
-          drag
-          dragConstraints={constraintsRef}
-          className='absolute left-0 md:left-16 top-0 z-20 cursor-pointer'
-        >
+      <div
+        ref={blueRef}
+        style={{ touchAction: 'none' }}
+        className='absolute left-0 md:left-16 top-0 z-20'
+      >
+        <FramerMagnetic>
           <SVG_BLUE />
-        </motion.div>
-        <motion.div
-          drag
-          dragConstraints={constraintsRef}
-          className='absolute left-0 md:left-20 bottom-0 z-30 cursor-pointer'
-        >
+        </FramerMagnetic>
+      </div>
+      <div
+        ref={pinkRef}
+        style={{ touchAction: 'none' }}
+        className='absolute left-0 md:left-20 bottom-0 z-30  '
+      >
+        <FramerMagnetic>
           <SVG_PINK />
-        </motion.div>
+        </FramerMagnetic>
+      </div>
 
-        <motion.div
-          drag
-          dragConstraints={constraintsRef}
-          className='absolute right-0 top-0 z-40 cursor-pointer'
-        >
+      <div
+        ref={yellowRef}
+        style={{ touchAction: 'none' }}
+        className='absolute right-0 top-0 z-40 '
+      >
+        <FramerMagnetic>
           <SVG_YELLOW />
-        </motion.div>
-      </motion.div>
+        </FramerMagnetic>
+      </div>
     </>
   )
 }
-
-export default DraggableImages

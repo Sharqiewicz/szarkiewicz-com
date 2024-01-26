@@ -15,7 +15,6 @@ export default {
 			"color-main-pink": "#FA1DFF"
 		},
 		extend: {},
-
 	},
 	plugins: [],
 }
