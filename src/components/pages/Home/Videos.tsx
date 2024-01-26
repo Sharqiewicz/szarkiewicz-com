@@ -40,9 +40,7 @@ const Videos = () => {
     },
   ]
 
-  const description = `I make videos about my life as a programmer. I show what I learn, what
-  I do and what I plan to do. I show my personality and my sense of
-  humor. Videos in Polish 🇵🇱`
+  const description = `I make videos about my life as a programmer. I show my personality. Videos in Polish 🇵🇱`
 
   const title = 'Check out my latest vlogs'
 
@@ -51,13 +49,19 @@ const Videos = () => {
   return (
     <section className='overflow-hidden' ref={ref}>
       <div className='container mx-auto'>
-        <div className='flex w-full justify-center items-center flex-wrap'>
-          <LottiePlayer src='./lottie/movie-lottie.json' />
-          <h2 className='text-3xl md:text-4xl lg:text-5xl mx-4 lg:mx-auto w-full md:w-1/2'>
-            {title}
-          </h2>
+        <div className='flex w-full flex-wrap justify-center items-center pt-8'>
+          <div className='flex mx-auto w-1/2 md:w-1/3 lg:w-1/4 justify-center items-center'>
+            <LottiePlayer src='./lottie/movie-lottie.json' />
+          </div>
+          <div className='w-full sm:w-1/2 mx-4 sm:mx-auto'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl  lg:mx-auto w-full '>
+              {title}
+            </h2>
+            <p className='me-description mb-12 text-xl mx-auto '>
+              {description}
+            </p>
+          </div>
         </div>
-        <p className='me-description mb-12 text-xl mx-4'>{description}</p>
       </div>
       <HorizontalScrollCarousel
         ref={ref}

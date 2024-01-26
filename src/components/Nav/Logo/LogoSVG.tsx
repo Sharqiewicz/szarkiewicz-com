@@ -8,7 +8,7 @@ export const LogoSVG = ({ color }) => {
     gsap.from(svgRef.current.children, {
       duration: 1,
       autoAlpha: 0,
-      stagger: 0.2,
+      stagger: 0.1,
       x: -100,
       ease: 'power3.out',
     })

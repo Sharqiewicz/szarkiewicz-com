@@ -23,10 +23,9 @@ export function LottieScrollTrigger(
 
   const defaultOptions = {
     trigger: target,
-    pin: true,
     start: 'top top',
     end: '+=2300',
-    scrub: 2,
+    scrub: 0,
     ...options,
   }
 

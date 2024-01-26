@@ -17,9 +17,9 @@ export const LottiePlayer: React.FC<LottiePlayerProps> = ({ src }) => {
       target: '#lottie-player',
       path: src,
       speed: 'medium',
-      startFrame: 10,
+      startFrame: 0,
     })
   }, [])
 
-  return <div ref={container} id='lottie-player' />
+  return <div ref={container} id='lottie-player' className='w-full' />
 }

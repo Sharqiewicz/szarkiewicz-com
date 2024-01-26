@@ -1,11 +1,15 @@
-import { useRef, useState, type MouseEvent } from 'react'
+import { useRef, useState, type MouseEvent, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useIsDesktop } from '../hooks/useIsDesktop'
 
 export const FramerMagnetic = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const isDesktop = useIsDesktop()
 
   const handleMouse = (e: MouseEvent<HTMLDivElement>) => {
+    if (!isDesktop) return
+
     const { clientX, clientY } = e
     if (ref.current) {
       const { height, width, left, top } = ref.current.getBoundingClientRect()
@@ -16,6 +20,8 @@ export const FramerMagnetic = ({ children }: { children: React.ReactNode }) => {
   }
 
   const reset = () => {
+    if (!isDesktop) return
+
     setPosition({ x: 0, y: 0 })
   }
 

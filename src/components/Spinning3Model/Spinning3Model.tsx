@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 
+import { useIsDesktop } from '../hooks/useIsDesktop'
+
 interface CoffeeObjectProps {
   modelPath: string
   positionY?: number
@@ -36,6 +38,7 @@ const Model: React.FC<CoffeeObjectProps> = ({
 }
 
 const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
+  const isDesktop = useIsDesktop()
   return (
     <Canvas
       style={{ height: 500 }}
@@ -45,7 +48,9 @@ const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
       gl={{ preserveDrawingBuffer: true }}
       {...props.canvasOptions}
     >
-      <OrbitControls autoRotate enableZoom={false} autoRotateSpeed={10} />
+      {isDesktop ? (
+        <OrbitControls autoRotate enableZoom={false} autoRotateSpeed={10} />
+      ) : null}
 
       <spotLight position={[0, 0, 200]} decay={0} intensity={5} />
       <spotLight position={[0, 0, -200]} decay={0} intensity={5} />
