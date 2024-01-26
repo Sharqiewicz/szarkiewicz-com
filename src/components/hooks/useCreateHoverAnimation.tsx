@@ -11,7 +11,7 @@ interface TransformOptions {
   z?: number
 }
 
-export default function createHoverAnimation(
+export function useCreateHoverAnimation(
   ref: RefObject<HTMLElement>,
   { x = 0, y = 0, z = 0 }: TransformOptions,
 ) {
@@ -37,6 +37,8 @@ export default function createHoverAnimation(
   }
 
   useEffect(() => {
+    console.log('ref ref useEffect')
+    console.log(ref)
     const { current } = ref
 
     current!.addEventListener('mousemove', handleMouseMove)

@@ -1,15 +1,16 @@
-import React, { useRef } from 'react'
-import createHoverAnimation from '../../../hooks/createHoverAnimation.tsx'
+import { useState, useRef, useEffect, type FC } from 'react'
+import { useCreateHoverAnimation } from '../../../hooks/useCreateHoverAnimation.tsx'
 import mePhoto from '../../../../assets/explain.png'
 
 interface BoardPhotoProps {
-  customClass: string
+  customClass?: string
+  customRefClass?: string
 }
 
-const BoardPhoto: React.FC<BoardPhotoProps> = ({ customClass }) => {
+export const BoardPhoto: FC<BoardPhotoProps> = ({ customClass }) => {
   const imageRef = useRef<HTMLDivElement>(null)
 
-  const imageHover = createHoverAnimation(imageRef, {
+  const imageHover = useCreateHoverAnimation(imageRef, {
     x: 12,
     y: -8,
     z: 12,
@@ -21,6 +22,7 @@ const BoardPhoto: React.FC<BoardPhotoProps> = ({ customClass }) => {
         <img
           style={{
             transform: imageHover.transform,
+            transition: imageHover.transition,
             userSelect: 'none',
             pointerEvents: 'none',
           }}
@@ -31,5 +33,3 @@ const BoardPhoto: React.FC<BoardPhotoProps> = ({ customClass }) => {
     </div>
   )
 }
-
-export default BoardPhoto
