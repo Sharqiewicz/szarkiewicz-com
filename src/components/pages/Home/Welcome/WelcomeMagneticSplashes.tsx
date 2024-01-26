@@ -55,9 +55,14 @@ export const WelcomeMagneticSplashes = () => {
 
   useEffect(() => {
     const tl = gsap.timeline()
-    tl.from(blueRef.current, { autoAlpha: 0, duration: 1 })
-      .from(pinkRef.current, { autoAlpha: 0, duration: 1 })
-      .from(yellowRef.current, { autoAlpha: 0, duration: 1 })
+    tl.from(blueRef.current, { autoAlpha: 0, duration: 0.3, x: -200 })
+      .from(pinkRef.current, { autoAlpha: 0, duration: 0.3, y: -200 })
+      .from(yellowRef.current, {
+        autoAlpha: 0,
+        duration: 0.3,
+        y: -100,
+        x: -100,
+      })
   }, [])
 
   return (

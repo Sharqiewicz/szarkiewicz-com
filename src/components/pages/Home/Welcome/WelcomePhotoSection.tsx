@@ -5,19 +5,15 @@ import { WelcomeMagneticSplashes } from './WelcomeMagneticSplashes'
 
 export const WelcomePhotoSection = () => {
   const imgRef = useRef(null)
-  const splashRef = useRef(null)
 
   useEffect(() => {
     const tl = gsap.timeline()
-    tl.from(imgRef.current, { autoAlpha: 0, duration: 0.5, y: 900 }).from(
-      splashRef.current,
-      { autoAlpha: 0, duration: 0.1 },
-    )
+    tl.from(imgRef.current, { autoAlpha: 0, duration: 0.5, y: 900 })
   }, [])
 
   return (
     <>
-      <div ref={splashRef}>
+      <div>
         <WelcomeMagneticSplashes />
       </div>
       <img
