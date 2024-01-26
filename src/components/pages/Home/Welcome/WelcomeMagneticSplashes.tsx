@@ -67,30 +67,18 @@ export const WelcomeMagneticSplashes = () => {
 
   return (
     <>
-      <div
-        ref={blueRef}
-        style={{ touchAction: 'none' }}
-        className='absolute left-0 md:left-16 top-0 z-20'
-      >
+      <div ref={blueRef} className='absolute left-0 md:left-16 top-0 z-20'>
         <FramerMagnetic>
           <SVG_BLUE />
         </FramerMagnetic>
       </div>
-      <div
-        ref={pinkRef}
-        style={{ touchAction: 'none' }}
-        className='absolute left-0 md:left-20 bottom-0 z-30  '
-      >
+      <div ref={pinkRef} className='absolute left-0 md:left-20 bottom-0 z-30  '>
         <FramerMagnetic>
           <SVG_PINK />
         </FramerMagnetic>
       </div>
 
-      <div
-        ref={yellowRef}
-        style={{ touchAction: 'none' }}
-        className='absolute right-0 top-0 z-40 '
-      >
+      <div ref={yellowRef} className='absolute right-0 top-0 z-40 '>
         <FramerMagnetic>
           <SVG_YELLOW />
         </FramerMagnetic>

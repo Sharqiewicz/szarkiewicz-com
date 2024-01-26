@@ -21,7 +21,7 @@ export const WelcomePhotoSection = () => {
         className='absolute z-50 bottom-0 left-1/2 -translate-x-1/2'
         src={MyPhoto.src}
         alt='Photo of Kacper Szarkiewicz'
-        style={{ userSelect: 'none', pointerEvents: 'none' }}
+        style={{ pointerEvents: 'none' }}
       />
     </>
   )
