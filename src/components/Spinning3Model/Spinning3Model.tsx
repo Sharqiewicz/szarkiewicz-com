@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 
@@ -11,6 +11,13 @@ interface CoffeeObjectProps {
   shouldRotate?: boolean
   canvasOptions?: any
 }
+
+const Loading = () => (
+  <mesh position={[0, 0, 0]}>
+    <sphereGeometry args={[1, 16, 16]} />
+    <meshStandardMaterial color='orange' />
+  </mesh>
+)
 
 const Model: React.FC<CoffeeObjectProps> = ({
   modelPath,
@@ -56,8 +63,9 @@ const Spinning3Model: React.FC<CoffeeObjectProps> = props => {
       <spotLight position={[0, 0, -200]} decay={0} intensity={5} />
       <spotLight position={[200, 0, 0]} decay={0} intensity={5} />
       <spotLight position={[-200, 0, 0]} decay={0} intensity={5} />
-      <Model {...props} />
-
+      <Suspense fallback={<Loading />}>
+        <Model {...props} />
+      </Suspense>
       <Preload all />
     </Canvas>
   )

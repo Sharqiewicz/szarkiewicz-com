@@ -2,9 +2,8 @@
 import BaseHead from '../../components/BaseHead.astro'
 import Header from '../../components/Header/Header.astro'
 import Footer from '../../components/Footer.astro'
-import { Temporary } from '../../components/pages/Blog/Temporary.tsx'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
-import Videos from '../../components/pages/Home/Videos'
+import { Spinning3Model } from '../../components/Sword3Model/Spinning3Model'
 ---
 
 <!doctype html>
@@ -16,9 +15,15 @@ import Videos from '../../components/pages/Home/Videos'
     <Header />
     <main>
       <div class='welcome-gradient'></div>
-      <section class='w-full text-center text-4xl bg-black'>
-        <Temporary client:load />
-        <h1>The page is being build...</h1>
+      <section
+        class='w-full bg-black flex justify-center flex-col items-center'
+      >
+        <Spinning3Model client:load modelPath='/3dmodels/sword/scene.gltf' />
+        <h1 class='text-white text-4xl'>
+          <figcaption>
+            <cite>Be patient</cite> - Geralt of Rivia
+          </figcaption>
+        </h1>
       </section>
       <div class='goodbye-gradient'></div>
     </main>
