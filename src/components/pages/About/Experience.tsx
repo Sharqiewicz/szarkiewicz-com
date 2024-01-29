@@ -63,7 +63,7 @@ const qvistorp: ExperienceItem = {
 const apptension: ExperienceItem = {
   title: 'Frontend Developer at Apptension',
   description:
-    'Responsible for creating mobile and web apps. I was involved in the mobile app development of Homehub.co.za, Vowel Mobile App and many more...',
+    'Responsible for creating mobile and web apps. I was involved in the mobile app development of Home+, Vowel Mobile App and many more...',
   date: 'Oct 2021 - Sep 2022',
   technologies: [
     'React Native',
@@ -78,8 +78,8 @@ const apptension: ExperienceItem = {
   ],
   links: [
     {
-      title: 'See Homehub',
-      url: 'https://www.home-hub.co.za/',
+      title: 'See Home+',
+      url: 'https://www.homeplus.africa/',
     },
     {
       title: 'See Vowel',
