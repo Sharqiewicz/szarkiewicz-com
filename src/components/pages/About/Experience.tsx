@@ -78,8 +78,16 @@ const apptension: ExperienceItem = {
   ],
   links: [
     {
+      title: 'See BLKBX',
+      url: 'https://www.apptension.com/case-studies/blkbx-case-study',
+    },
+    {
       title: 'See Home+',
       url: 'https://www.homeplus.africa/',
+    },
+    {
+      title: 'See Home+ Case Study',
+      url: 'https://www.apptension.com/case-studies/home-app-case-study',
     },
     {
       title: 'See Vowel',
