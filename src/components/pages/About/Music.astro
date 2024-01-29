@@ -13,7 +13,7 @@ import { MusicTimeline } from './MusicTimeline/MusicTimeline'
         <a
           target='_blank'
           href='https://open.spotify.com/artist/4vH9nb7QCTcM7S3v63MU9C?si=9kL8D59eSemVntPz4jJTxw'
-          class='w-96 rounded-lg hover:animate-pulse'
+          class='w-96 rounded-lg hover:animate-pulse hover:scale-105 transition'
         >
           <Image
             src={MusicProfile}
@@ -39,14 +39,14 @@ import { MusicTimeline } from './MusicTimeline/MusicTimeline'
           <Image
             src={Spotify}
             alt='Spotify icon'
-            class='hover:animate-pulse mr-5 h-20 w-20'
+            class='hover:animate-pulse mr-5 h-20 w-20 hover:scale-110 transition'
           />
           <p>Follow my music on Spotify</p>
         </a>
       </div>
       <div class='w-full mt-10 ml-2 flex sm:block'>
         <div class='w-1/2 sm:w-full'>
-          <MusicTimeline />
+          <MusicTimeline client:load />
         </div>
         <div class='w-1/2 sm:w-0'>
           <video controls class='w-96 rounded-lg'>

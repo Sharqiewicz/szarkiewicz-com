@@ -1,3 +1,7 @@
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { useInView } from '../../hooks/useInView'
+
 interface ExperienceItem {
   date: string
   title: string
@@ -121,59 +125,85 @@ const experienceItems: ExperienceItem[] = [
 ]
 
 export const Experience = () => {
+  const [ref, isInView] = useInView({ rootMargin: '-220px' })
+  const liRefs = useRef([])
+
+  useEffect(() => {
+    if (isInView) {
+      const tl = gsap.timeline()
+      tl.to(liRefs.current, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.3,
+        duration: 1,
+        ease: 'power1.out',
+      })
+    }
+  }, [isInView])
+
   return (
     <div className='mx-20 max-w-1/2 flex justify-center items-center flex-col'>
       <h1 className='text-5xl mb-10'>My Experience.</h1>
-      <ol className='relative border-s border-gray-200 dark:border-gray-700 mb-20'>
-        {experienceItems.map(item => (
-          <li className='mb-10 ms-4'>
-            <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
-            <time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-              {item.date}
-            </time>
-            <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
-              {item.title}
-            </h3>
-            <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>
-              {item.description}
-            </p>
-            <div className='w-full flex flex-wrap'>
-              {item.technologies.map(technology => (
-                <span className='mt-2 bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300'>
-                  {technology}
-                </span>
-              ))}
-            </div>
-            <div className='w-full mt-5'>
-              {item.links &&
-                item.links.map(link => (
-                  <a
-                    target='_blank'
-                    href={link.url}
-                    className='mr-3 mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700'
-                  >
-                    {link.title}
-                    <svg
-                      className='w-3 h-3 ms-2 rtl:rotate-180'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 14 10'
-                    >
-                      <path
-                        stroke='currentColor'
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='M1 5h12m0 0L9 1m4 4L9 9'
-                      />
-                    </svg>
-                  </a>
+      <ol
+        className='relative border-s border-gray-200 dark:border-gray-700 mb-20'
+        ref={ref}
+      >
+        {experienceItems.map((item, index) => (
+          <li
+            className='opacity-0'
+            ref={el => (liRefs.current[index] = el)}
+            key={`${item.title}-${item.date}`}
+          >
+            <div className='mb-10 ms-4'>
+              <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
+              <time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+                {item.date}
+              </time>
+              <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
+                {item.title}
+              </h3>
+              <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>
+                {item.description}
+              </p>
+              <div className='w-full flex flex-wrap'>
+                {item.technologies.map(technology => (
+                  <span className='mt-2 bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300'>
+                    {technology}
+                  </span>
                 ))}
+              </div>
+              <div className='w-full mt-5'>
+                {item.links &&
+                  item.links.map(link => (
+                    <a
+                      key={link.title}
+                      target='_blank'
+                      href={link.url}
+                      className='mr-3 mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700'
+                    >
+                      {link.title}
+                      <svg
+                        className='w-3 h-3 ms-2 rtl:rotate-180'
+                        aria-hidden='true'
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 14 10'
+                      >
+                        <path
+                          stroke='currentColor'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M1 5h12m0 0L9 1m4 4L9 9'
+                        />
+                      </svg>
+                    </a>
+                  ))}
+              </div>
             </div>
           </li>
         ))}
-        <li className='ms-4'>
+        <li className='ms-4' key='start-of-journey'>
           <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
           <time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
             August 2018

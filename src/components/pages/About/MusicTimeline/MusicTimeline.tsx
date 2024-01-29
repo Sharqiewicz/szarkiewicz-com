@@ -1,3 +1,6 @@
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { useInView } from '../../../hooks/useInView'
 import Styles from './MusicTimeline.module.css'
 
 interface Point {
@@ -27,20 +30,37 @@ export const MusicTimeline = () => {
 
   const points: Point[] = [start, firstSong, firstAlbum]
 
+  const pointsRef = useRef([])
+  const [viewRef, inView] = useInView()
+
+  useEffect(() => {
+    gsap.from(pointsRef.current, {
+      opacity: 0,
+      y: 50,
+      stagger: 0.3,
+      duration: 1,
+      ease: 'power1.out',
+    })
+  }, [inView])
+
   return (
-    <ol className='items-center sm:flex'>
-      {points.map(point => (
-        <li className='relative mb-6 sm:mb-0'>
+    <ol className='items-center sm:flex' ref={viewRef}>
+      {points.map((point, index) => (
+        <li
+          className='relative mb-6 sm:mb-0'
+          ref={el => (pointsRef.current[index] = el)}
+          key={point.title}
+        >
           <div className='flex items-center'>
             <div
               className={`${
                 !point.finished
                   ? 'bg-green-100 animate-pulse'
                   : `${Styles['timeline-circle']} sm:w-12`
-              } z-10 flex items-center justify-center w-10  h-10 rounded-full`}
+              } z-10 flex items-center justify-center w-10  h-10 rounded-full hover:scale-110 transition`}
             >
               <svg
-                className='w-2.5 h-2.5 text-green-800 dark:text-green-300'
+                className='w-2.5 h-2.5 text-green-800 dark:text-green-300 '
                 aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='currentColor'
