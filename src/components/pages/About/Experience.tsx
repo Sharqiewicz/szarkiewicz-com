@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useInView } from '../../hooks/useInView'
+import { useIsDesktop } from '../../hooks/useIsDesktop'
 
 interface ExperienceItem {
   date: string
@@ -135,8 +136,11 @@ const experienceItems: ExperienceItem[] = [
 export const Experience = () => {
   const [ref, isInView] = useInView({ rootMargin: '-220px' })
   const liRefs = useRef([])
+  const isDesktop = useIsDesktop()
 
   useEffect(() => {
+    if (!isDesktop) return
+
     if (isInView) {
       const tl = gsap.timeline()
       tl.to(liRefs.current, {
@@ -158,7 +162,7 @@ export const Experience = () => {
       >
         {experienceItems.map((item, index) => (
           <li
-            className='opacity-0'
+            className='lg:opacity-0'
             ref={el => (liRefs.current[index] = el)}
             key={`${item.title}-${item.date}`}
           >
